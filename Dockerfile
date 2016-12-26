@@ -91,7 +91,7 @@ ADD config/horizon/local_settings.py /etc/openstack-dashboard/local_settings.py
 EXPOSE 3306 35357 9292 5000 5672 8774 8776 6080 9696 16514 16509 80 
 
 ENTRYPOINT service apache2 restart && service mysql restart && service openvswitch-switch restart && ovs-vsctl add-br br-ex && \ 
-           ovs-vsctl add-port br-ex ens33 && service networking restart && \
+           ovs-vsctl add-port br-ex eth0 && service networking restart && \
            service memcached restart && service rabbitmq-server restart && sysctl -p && \
            rabbitmqctl add_user openstack rabbit && rabbitmqctl set_permissions openstack ".*" ".*" ".*" && \
 	   mysql -u root -e  "CREATE DATABASE keystone" && mysql -u root -e  "GRANT ALL ON keystone.* TO 'keystoneUser'@'%' IDENTIFIED BY 'keystonePass'" && \
