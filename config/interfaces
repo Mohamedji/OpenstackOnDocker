@@ -2,8 +2,8 @@
 # Include files from /etc/network/interfaces.d:
 source-directory /etc/network/interfaces.d
 
-auto ens33
-iface ens33 inet manual
+auto eth0
+iface eth0 inet manual
 up ifconfig $IFACE 0.0.0.0 up
 upip link set $IFACE promisc on
 downip link set $IFACE promisc off
