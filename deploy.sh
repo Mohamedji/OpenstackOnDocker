@@ -4,6 +4,7 @@ echo "Installing dependencies..."
 apt-get update
 apt-get install lvm2 docker.io software-properties-common python-software-properties -y
 add-apt-repository cloud-archive:newton -y
+apt-get update
 apt-get install openvswitch-switch -y
 docker build -t openstack .
 docker run -itd -p 80:80 -p 6080:6080 --privileged --device=/dev/sdb:/dev/sdb -v /var/run/lvm/lvmetad.socket:/var/run/lvm/lvmetad.socket -v /lib/modules/:/lib/modules openstack /bin/bash
