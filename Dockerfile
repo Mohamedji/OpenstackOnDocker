@@ -1,6 +1,7 @@
 FROM ubuntu:xenial
 MAINTAINER mohamedji@outlook.com
 
+
 ENV OS_USERNAME=admin
 ENV OS_PASSWORD=admin_pass
 ENV OS_PROJECT_NAME=admin
